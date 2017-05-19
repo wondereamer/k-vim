@@ -18,6 +18,29 @@
 "
 "       -> 插件配置和具体设置在vimrc.bundles中
 "==========================================
+"
+
+"==========================================
+" wondereamer's settings
+"==========================================
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'rking/ag.vim'
+
+call vundle#end()            " required
+filetype plugin indent on  "
+
+
+set textwidth=100  "max length" 
+set wrap
+
+
+
+
+
 
 "==========================================
 " Initial Plugin 加载插件
@@ -154,8 +177,6 @@ set laststatus=2
 
 " 显示行号
 set number
-" 取消换行
-set nowrap
 
 " 括号配对情况, 跳转并高亮一下匹配的括号
 set showmatch
@@ -357,7 +378,8 @@ function! HideNumber()
 endfunc
 nnoremap <F2> :call HideNumber()<CR>
 " F3 显示可打印字符开关
-nnoremap <F3> :set list! list?<CR>
+" nnoremap <F3> :set list! list?<CR>
+nnoremap <F3> :set paste! paste?<CR>
 " F4 换行开关
 nnoremap <F4> :set wrap! wrap?<CR>
 
@@ -407,13 +429,13 @@ command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <Leader>z :ZoomToggle<CR>
 
 
-" Go to home and end using capitalized directions
-noremap H ^
-noremap L $
+" Go to home and end using capitalized direction"
+" noremap H ^
+" noremap L $
 
 
 " Map ; to : and save a million keystrokes 用于快速进入命令行
-nnoremap ; :
+" nnoremap ; :
 
 
 " 命令行模式增强，ctrl - a到行首， -e 到行尾
@@ -688,3 +710,4 @@ highlight SpellLocal term=underline cterm=underline
 
 
 
+colorscheme molokai
