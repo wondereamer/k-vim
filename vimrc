@@ -34,8 +34,6 @@ call vundle#end()            " required
 filetype plugin indent on  "
 
 
-set textwidth=100  "max length" 
-set wrap
 
 
 
@@ -168,7 +166,11 @@ set showmode
 " 在上下移动光标时，光标的上方或下方至少会保留显示的行数
 set scrolloff=7
 
-" set winwidth=79
+autocmd BufNewFile,BufRead *.py set textwidth=79
+autocmd BufNewFile,BufRead *.py set winwidth=79
+autocmd BufNewFile,BufRead *.py set colorcolumn=+1
+set wrap
+"set color length = textwidth+1
 
 " 命令行（在状态行下）的高度，默认为1，这里是2
 set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
@@ -462,9 +464,6 @@ nnoremap <silent> g* g*zz
 " 去掉搜索高亮
 noremap <silent><leader>/ :nohls<CR>
 
-" switch # *
-nnoremap # *
-nnoremap * #
 
 " for # indent, python文件中输入新行时#号注释不切回行首
 autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#
@@ -711,3 +710,4 @@ highlight SpellLocal term=underline cterm=underline
 
 
 colorscheme molokai
+let g:ultisnips_python_style="numpy"
